@@ -12,6 +12,7 @@ from auth import AuthError, requires_auth
 from models import Drink, Role, db_drop_and_create_all, setup_db
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
 
 
 @app.route("/")

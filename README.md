@@ -36,7 +36,7 @@ The application has two types of user(roles) who are:
 | Barista       | ```get:drinks``` and ```post:drinks``` only |
 | Manager       | ```delete:drinks```, ```get:drinks```, ```get:drinks-detail```, ```patch:drinks```, and ```post:drinks```      |
 
-## Instructions To Setup Authentications
+## Setup Authentications
 We have two steps to setup the authentication:
 
 1. Enter the [application authorized endpoint](https://coffee-shop-asrar.herokuapp.com/authorize) using this login info:
@@ -227,6 +227,8 @@ The Trivia app API uses the following error codes:
 ```
 
 ## Testing
+
+First setup the Authentications as shown in the **Setup Authentications** section, then change the ```JWT_BARISTA``` and ```JWT_MANAGER``` in ```test_flaskr.py```.
 
 To run the tests, run
 

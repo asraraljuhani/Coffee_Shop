@@ -75,7 +75,7 @@ GET '/drinks'
 - Request Arguments: None
 - Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs.
 {
-    "success": True,
+   "success": True,
    "drinks": drinks: {
     '1' : "Science",
     '2' : "Art",
@@ -154,9 +154,14 @@ PATCH '/drinks/${id}'
 
 ```js
 DELETE '/drinks/${id}'
-- Deletes a specified question using the id of the question
+- Deletes a specified drink using its id 
 - Request Arguments: id - integer
-- Returns: Does not need to return anything besides the appropriate HTTP status code. Optionally can return the id of the question. If you are able to modify the frontend, you can have it remove the question using the id instead of refetching the questions.
+- Returns: returns the appropriate HTTP status code and the id of the deleted drink. 
+{
+    'delete': ${id},
+    'success': true
+}
+
 ```
 
 ## Errors

@@ -231,5 +231,7 @@ The Trivia app API uses the following error codes:
 To run the tests, run
 
 ```js
+dropdb coffee_shop_test
+createdb coffee_shop_test
 python test_flaskr.py
 ```

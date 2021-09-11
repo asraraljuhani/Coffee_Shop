@@ -191,11 +191,11 @@ def edit_drink(payload, drink_id):
 '''
 
 
-@app.route('/drinks/<int:drinks_id>', methods=['DELETE'])
-@requires_auth('delete:drinks')
-def delete_drink(payload, drinks_id):
+@app.route('/drinks/<int:drink_id>', methods=['DELETE'])
+@requires_auth('delete:drink')
+def delete_drink(payload, drink_id):
     try:
-        drink = Drink.query.get(drinks_id)
+        drink = Drink.query.get(drink_id)
         drink.delete()
 
     except Exception:
@@ -206,7 +206,7 @@ def delete_drink(payload, drinks_id):
 
     return jsonify({
         'success': True,
-        'delete': drinks_id
+        'delete': drink_id
     })
 
 # Error Handling

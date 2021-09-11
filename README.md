@@ -18,6 +18,11 @@ The application has CRUD functionality as shown below:
 * Flask Framework.
 * Postgres.
 
+## Deploy to Heroku
+
+[Heroku URL](https://coffee-shop-asrar.herokuapp.com/)
+
+
 ## User Types (Roles)
 
 The application has two types of user(roles) who are:
@@ -31,8 +36,8 @@ The application has two types of user(roles) who are:
 | Barista       | ```get:drinks``` and ```post:drinks``` only |
 | Manager       | ```delete:drinks```, ```get:drinks```, ```get:drinks-detail```, ```patch:drinks```, and ```post:drinks```      |
 
-## Getting Started
-We have two steps to use the application:
+## Instructions To Setup Authentications
+We have two steps to setup the authentication:
 
 1. Enter the [application authorized endpoint](https://coffee-shop-asrar.herokuapp.com/authorize) using this login info:
 
@@ -43,9 +48,13 @@ We have two steps to use the application:
 
 2. After login takes the access_token from the URL and saves it to use with the proper endpoint as shown in **User Permissions** above.
 
-> Note: You can verify the generated token using [jwt.io](https://jwt.io/) website.
+Finally, You can use **Postman** with JWT token to run and test the endpoints.
 
-## Key Dependencies
+> Note: You can verify the generated token using [jwt.io](https://jwt.io/) website. 
+
+## Getting Started
+
+### Key Dependencies
 
 - [Python 3.7](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python) is an interpreted high-level general-purpose programming language.
 
@@ -57,13 +66,38 @@ We have two steps to use the application:
 
 - [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server.
 
-- PIP Dependencies install dependencies using this command to install all of the required packages we selected within the `requirements.txt` file:
+### Install dependencies
+
+install dependencies using this command to install all of the required packages we selected within the `requirements.txt` file:
 
 ```bash
 pip install -r requirements.txt
 ```
+### Database Setup
 
----
+You have two options,
+
+First you can use an external database and add their URL using this command below in the terminal. 
+
+```
+export SQL_DATABASE_URI=DataBase_URL
+```
+or create it locally and add their URL using the same command above.
+
+
+
+### Running the server
+
+from the root directory, run:
+
+```bash
+export FLASK_APP=app
+flask run --reload
+```
+
+The ```--reload``` flag will detect file changes and restart the server automatically.
+
+The server will run on http://localhost:5000.
 
 ## API Documentation
 
@@ -185,3 +219,10 @@ The Trivia app API uses the following error codes:
 }
 ```
 
+## Testing
+
+To run the tests, run
+
+```js
+python test_flaskr.py
+```

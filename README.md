@@ -1,4 +1,4 @@
-# Coffee Shop 
+# Coffee Shop
 
 Coffee Shop app is a backend flask application that allows users to get, add, edit, and delete drinks at Udacity cafe.
 
@@ -13,13 +13,13 @@ The application has CRUD functionality as shown below:
 
 ## User Types (Roles)
 
-The application has two types of user(roles) who are: 
+The application has two types of user(roles) who are:
 1. Barista, is someone who serves and provides customers.
 2. A manager, is someone who manages and runs the coffee shop.
 
 ## User Permissions
 
-- The Barista can ```get:drinks``` and 'post:drinks' only.
+- The Barista can ```get:drinks``` and ```post:drinks``` only.
 - The Manager has all permissions, which are ```delete:drinks```, ```get:drinks```, ```get:drinks-detail```, ```patch:drinks```, and ```post:drinks```.
 
 
@@ -35,9 +35,9 @@ The application has two types of user(roles) who are:
 
 ## Key Dependencies
 
-- [Python 3.7](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python) Python is an interpreted high-level general-purpose programming language.
+- [Python 3.7](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python) is an interpreted high-level general-purpose programming language.
 
-- [Virtual Enviornment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) A virtual environment is a tool that helps to keep dependencies required by different projects separate by creating isolated python virtual environments for them.
+- [Virtual Enviornment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) is a tool that helps to keep dependencies required by different projects separate by creating isolated python virtual environments for them.
 
 - [Flask](http://flask.pocoo.org/) is a lightweight backend microservices framework. Flask is required to handle requests and responses.
 
@@ -45,10 +45,10 @@ The application has two types of user(roles) who are:
 
 - [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server.
 
-- PIP Dependencies install dependencies using this command to install all of the required packages we selected within the `requirements.txt` file: 
+- PIP Dependencies install dependencies using this command to install all of the required packages we selected within the `requirements.txt` file:
 
 ```bash
-pip install -r requirements.txt 
+pip install -r requirements.txt
 ```
 
 ---

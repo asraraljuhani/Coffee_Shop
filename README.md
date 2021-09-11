@@ -28,11 +28,11 @@ The application has two types of user(roles) who are:
 
 | Role Name     | permissions|
 | ------------- |:-------------:|
-| Barista       | ```get:drinks``` and ```post:drinks``` only | 
+| Barista       | ```get:drinks``` and ```post:drinks``` only |
 | Manager       | ```delete:drinks```, ```get:drinks```, ```get:drinks-detail```, ```patch:drinks```, and ```post:drinks```      |
 
 ## Getting Started
-We have two steps to use the application: 
+We have two steps to use the application:
 
 1. Enter the [application authorized endpoint](https://coffee-shop-asrar.herokuapp.com/authorize) using this login info:
 
@@ -71,94 +71,92 @@ The application has 5 endpoints which are:
 
 ```js
 GET '/drinks'
-- Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+- Fetches drinks info.
 - Request Arguments: None
-- Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs.
+- Returns: An object with an array of drinks contains their ids, titles, and created info.
 {
-   "success": True,
-   "drinks": drinks: {
-    '1' : "Science",
-    '2' : "Art",
-    '3' : "Geography",
-    '4' : "History",
-    '5' : "Entertainment",
-    '6' : "Sports" }
+    'drinks': [
+        {
+            'created_by': Manager,
+            'id': 1,
+            'title': 'water'
+        },
+    ],
+    'success': true
 }
 ```
 
 ```js
 GET '/drinks-detail'
-- Fetches a paginated set of questions, a total number of questions, all categories and current category string.
-- Request Arguments: page - integer
-- Returns: An object with 10 paginated questions, total questions, object including all categories, and current category string
+- Fetches drinks info in details.
+- Request Arguments: None
+- Returns: An object with an array of drinks info contains their full info from their ids, titles, recipe, and created info.
 {
-    'questions': [
+    'drinks': [
         {
+            'created_by': 'Manager',
             'id': 1,
-            'question': 'This is a question',
-            'answer': 'This is an answer',
-            'difficulty': 5,
-            'category': 2
-        },
+            'recipe': [
+            {
+               'color': 'blue',
+               'name': 'water',
+               'parts': 1
+            }
+            ],
+            'title': 'water'
+        }
     ],
-    'totalQuestions': 100,
-    'categories': { '1' : "Science",
-    '2' : "Art",
-    '3' : "Geography",
-    '4' : "History",
-    '5' : "Entertainment",
-    '6' : "Sports" },
-    'currentCategory': 'History'
+    'success': true
 }
 ```
 
 ```js
 POST '/drinks'
-- Fetches questions for a cateogry specified by id request argument
-- Request Arguments: id - integer
-- Returns: An object with questions for the specified category, total questions, and current category string
+- Fetches adding drink info
+- Request Arguments: None
+- Returns: An object with an array of drinks info contains their full info from their ids, titles, recipe, and created info.
 {
-    'questions': [
+    'drinks': [
         {
-            'id': 1,
-            'question': 'This is a question',
-            'answer': 'This is an answer',
-            'difficulty': 5,
-            'category': 4
-        },
+            'created_by': 'Manager',
+            'id': 2,
+            'recipe': [
+            {
+               'color': 'white',
+               'name': 'milk',
+               'parts': 1
+            },
+            {
+               'color': 'green',
+               'name': 'matcha',
+               'parts': 1
+            },
+            ],
+            'title': 'matcha latte'
+        }
     ],
-    'totalQuestions': 100,
-    'currentCategory': 'History'
+    'success': true
 }
 ```
 
 ```js
 PATCH '/drinks/${id}'
-- Fetches questions for a cateogry specified by id request argument
+- Fetches drink info by id request argument
 - Request Arguments: id - integer
-- Returns: An object with questions for the specified category, total questions, and current category string
+- Returns: the updated drink name and the appropriate HTTP status code description.
 {
-    'questions': [
-        {
-            'id': 1,
-            'question': 'This is a question',
-            'answer': 'This is an answer',
-            'difficulty': 5,
-            'category': 4
-        },
-    ],
-    'totalQuestions': 100,
-    'currentCategory': 'History'
+    'drinks': 'Tea',
+    'success': true
 }
 ```
 
 ```js
 DELETE '/drinks/${id}'
-- Deletes a specified drink using its id 
+- Deletes a specified drink using its id
 - Request Arguments: id - integer
-- Returns: returns the appropriate HTTP status code and the id of the deleted drink. 
+- Returns: the appropriate HTTP status code description and the id of the deleted drink.
 {
-    'delete': ${id},
+    'delete': 1,
     'success': true
 }
 

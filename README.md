@@ -11,6 +11,13 @@ The application has CRUD functionality as shown below:
 3. edit drinks information.
 4. delete drinks information.
 
+## Built with
+
+* Auth0.
+* Python.
+* Flask Framework.
+* Postgres.
+
 ## User Types (Roles)
 
 The application has two types of user(roles) who are:
@@ -19,19 +26,24 @@ The application has two types of user(roles) who are:
 
 ## User Permissions
 
-- The Barista can ```get:drinks``` and ```post:drinks``` only.
-- The Manager has all permissions, which are ```delete:drinks```, ```get:drinks```, ```get:drinks-detail```, ```patch:drinks```, and ```post:drinks```.
-
-
-## Built with
-
-* Auth0.
-* Python.
-* Flask Framework.
-* Postgres.
-
+| Role Name     | permissions|
+| ------------- |:-------------:|
+| Barista       | ```get:drinks``` and ```post:drinks``` only | 
+| Manager       | ```delete:drinks```, ```get:drinks```, ```get:drinks-detail```, ```patch:drinks```, and ```post:drinks```      |
 
 ## Getting Started
+We have two steps to use the application: 
+
+1. Enter the [application authorized endpoint](https://coffee-shop-asrar.herokuapp.com/authorize) using this login info:
+
+| Email                               | Password             | Role    |
+| ----------------------------------- |:--------------------:| -------:|
+| coffeeshop.asrar.manager@gmail.com  | ******************** | Manager |
+| coffeeshop.asrar.barista@gmail.com  | ******************** | Barista |
+
+2. After login takes the access_token from the URL and saves it to use with the proper endpoint as shown in **User Permissions** above.
+
+> Note: You can verify the generated token using [jwt.io](https://jwt.io/) website.
 
 ## Key Dependencies
 

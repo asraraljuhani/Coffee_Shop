@@ -79,12 +79,19 @@ You have two options,
 
 First you can use an external database and add their URL using this command below in the terminal. 
 
-```
-export SQL_DATABASE_URI=DataBase_URL
+```bash
+export SQL_DATABASE_URI=Your_DataBase_URL
 ```
 or create it locally and add their URL using the same command above.
 
+### Config Auth Variables 
 
+Using these commands in the terminal, you can config Auth Variables on the project:
+```bash
+export audience=Your_audience;
+export client_id=Your_client_id;
+export client_secret=Your_client_secret;
+```
 
 ### Running the server
 

@@ -36,7 +36,7 @@ The application has two types of user(roles) who are:
 | Barista       | ```get:drinks``` and ```post:drinks``` only |
 | Manager       | ```delete:drinks```, ```get:drinks```, ```get:drinks-detail```, ```patch:drinks```, and ```post:drinks```      |
 
-## Instructions To Setup Authentications
+## Setup Authentications
 We have two steps to setup the authentication:
 
 1. Enter the [application authorized endpoint](https://coffee-shop-asrar.herokuapp.com/authorize) using this login info:
@@ -79,12 +79,19 @@ You have two options,
 
 First you can use an external database and add their URL using this command below in the terminal. 
 
-```
-export SQL_DATABASE_URI=DataBase_URL
+```bash
+export SQL_DATABASE_URI=Your_DataBase_URL
 ```
 or create it locally and add their URL using the same command above.
 
+### Config Auth Variables 
 
+Using these commands in the terminal, you can config Auth Variables on the project:
+```bash
+export audience=Your_audience;
+export client_id=Your_client_id;
+export client_secret=Your_client_secret;
+```
 
 ### Running the server
 
@@ -221,8 +228,12 @@ The Trivia app API uses the following error codes:
 
 ## Testing
 
+First setup the Authentications as shown in the **Setup Authentications** section, then change the ```JWT_BARISTA``` and ```JWT_MANAGER``` in ```test_flaskr.py```.
+
 To run the tests, run
 
 ```js
+dropdb coffee_shop_test
+createdb coffee_shop_test
 python test_flaskr.py
 ```

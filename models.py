@@ -8,7 +8,7 @@ from sqlalchemy import Column, Integer, String
 # project_dir = os.path.dirname(os.path.abspath(__file__))
 # database_path = "sqlite:///{}".format(
 #     os.path.join(project_dir, database_filename))
-# database_name = "coffeeShop"
+# database_name = "coffee_shop_test"
 # database_path = "postgresql://{}/{}".format('localhost:5432', database_name)
 
 db = SQLAlchemy()
@@ -21,6 +21,13 @@ setup_db(app)
 
 def setup_db(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["SQL_DATABASE_URI"]
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.app = app
+    db.init_app(app)
+
+
+def setup_db_test(app, database_path):
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)

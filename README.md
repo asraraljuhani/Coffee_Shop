@@ -112,6 +112,44 @@ The ```--reload``` flag will detect file changes and restart the server automati
 
 The server will run on http://localhost:5000.
 
+
+### Hosting Instructions
+
+This project is configured to deploy to Heroku easily. Just follow these steps to deploy it.
+
+1. Create an account in [Heroku](https://www.heroku.com/).
+2. Upload your project to GitHub.
+3. from the terminal in the project directory, run this command to login into your Heroku account
+```bash
+heroku login
+```
+4. Now create a Database for the app using the following command.
+```bash
+heroku addons:create heroku-postgresql:hobby-dev --app app_name
+```
+5. Config you project environment variables in Heroku from project dashboard on the link https://dashboard.heroku.com/apps/app_name . Then from settings -> Config Vars, add your environment variables.
+
+6. Make your Heroku App as the remote repository using
+```bash
+heroku git:remote -a app_name
+```
+7. push project into your Heroku App Repository using
+
+```bash
+git push heroku master
+```
+Now, the project will be hosted on https://app_name.herokuapp.com/
+
+8. lastly, create database tables, using this command 
+```bash
+heroku run python --app app_name 
+```
+in python terminal, run
+```js
+from models import db_drop_and_create_all
+db_drop_and_create_all()
+```
+
 ## API Documentation
 
 The application has 5 endpoints which are:

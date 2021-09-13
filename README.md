@@ -2,6 +2,12 @@
 
 Coffee Shop app is a backend flask application that allows users to get, add, edit, and delete drinks at Udacity cafe.
 
+## Project Motivation
+
+1. Enhance my programming skills.
+2. Learn how to deploy a project to Heroku.
+3. Learn how to use environment variables.
+
 ## Features
 
 The application has CRUD functionality as shown below:

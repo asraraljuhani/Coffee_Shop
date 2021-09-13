@@ -29,12 +29,13 @@ def create_app(test_config=None):
 
     @app.route("/authorize")
     def authorize_user():
-        url = "https://asraraljuhani.us.auth0.com/authorize?audience=" + \
+        url = os.environ["URL"] + \
             os.environ["audience"]
         url += "&response_type=token&client_id=" + \
             os.environ["client_id"]+"&client_secret=" + \
             os.environ["client_secret"]
-        url += "&redirect_uri=https://asraraljuhani.us.auth0.com/oauth/token"
+        url += "&redirect_uri=" + \
+            os.environ["Redirect_URI"]
         return redirect(url)
 
     '''
